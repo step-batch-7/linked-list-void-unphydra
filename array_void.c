@@ -36,3 +36,13 @@ Element reduce_void(List_ptr src, Element init, Reducer reducer)
   }
   return result;
 }
+
+void forEach(List_ptr src, ElementProcessor processor)
+{
+  Node_ptr p_walk = src->first;
+  while (p_walk!=NULL)
+  {
+    (*processor)(p_walk->element);
+    p_walk = p_walk->next;
+  }
+}
