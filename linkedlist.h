@@ -1,3 +1,6 @@
+#ifndef __LINKEDLIST_H_
+#define __LINKEDLIST_H_
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -5,10 +8,6 @@
 The consumer of this Linked List library is expected to take care of allocating & freeing elements.
 The Linked List maintains the element references in a sequence and provides convenient operations on them.
 */
-
-#ifndef __LINKEDLIST_H_
-#define __LINKEDLIST_H_
-
 
 typedef enum
 {
@@ -41,6 +40,7 @@ typedef Element (*Reducer)(Element, Element);
 typedef void (*ElementProcessor)(Element);
 typedef Status (*Matcher)(Element, Element);
 
+Node_ptr create_node(Element);
 List_ptr create_list(void);
 
 Status add_to_list(List_ptr, Element);
