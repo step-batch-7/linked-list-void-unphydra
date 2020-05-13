@@ -224,3 +224,15 @@ Status clear_list(List_ptr list)
   list->length = 0;
   return Success;
 }
+
+List_ptr reverse(List_ptr list)
+{
+  List_ptr result = create_list();
+  Node_ptr p_walk = list->first;
+  while (p_walk != NULL)
+  {
+    add_to_start(result,p_walk->element);
+    p_walk = p_walk->next;
+  }
+  return result;
+}
