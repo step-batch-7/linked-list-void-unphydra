@@ -184,12 +184,12 @@ Element remove_first_occurrence(List_ptr list, Element value, Matcher matcher)
       return remove_at(list,pos);
     }
     pos++;
-    p_walk= p_walk->next;
+    p_walk = p_walk->next;
   }
   return NULL;
 }
 
-List_ptr remove_all_occurrences(List_ptr list, Element value,Matcher matcher)
+List_ptr remove_all_occurrences(List_ptr list, Element value, Matcher matcher)
 {
   List_ptr remove_list = create_list();
   while (1)

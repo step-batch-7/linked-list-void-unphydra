@@ -236,13 +236,17 @@ void test_remove_all_occurrences(void)
   int expected_1[] = {5,5,5};
   int expected_1_length = 3;
   s = s && compare_list_values(actual,expected_1,expected_1_length);
-  show_message("should remove the first occurrence of the given value from the first position", s);
+  show_message("should remove all occurrence of the given value from the list when there is only one occurrence", s);
 
   l = remove_all_occurrences(actual,&ar[1],test_matcher);
   int expected_2[] = {};
   int expected_2_length = 0;
   s = s && compare_list_values(actual,expected_2,expected_2_length);
-  show_message("should remove the first occurrence of the given value from the in between position", s);
+  show_message("should remove all occurrence of the given value from the list has only that value", s);
+
+  l = remove_all_occurrences(actual,&ar[1],test_matcher);
+  s = s && compare_list_values(actual,expected_2,expected_2_length) && compare_list_values(l,expected_2,expected_2_length);
+  show_message("should remove_all_occurrence doest remove and give empty list", s);
 }
 
 void test_linked_list(void)
