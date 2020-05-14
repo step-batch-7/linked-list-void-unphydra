@@ -20,8 +20,8 @@ List_ptr filter(List_ptr src, Predicate predicate)
   {
     if((*predicate)(p_walk->element)){
     add_to_list(result,p_walk->element);
-    p_walk = p_walk->next;
     }
+    p_walk = p_walk->next;
   }
   return result;
 }
