@@ -8,3 +8,4 @@ void show_message(String,Status);
 void show_length_failure(int, int);
 
 void test_linked_list(void);
+void test_array_methods(void);
