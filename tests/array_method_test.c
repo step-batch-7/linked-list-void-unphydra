@@ -34,7 +34,28 @@ void test_map(void)
   test_map_for_increment_number_mapper();
 }
 
+Status test_predicate(Element a)
+{
+  return !(*(int*)a % 2);
+}
+
+void test_filter_for_empty_list(void)
+{ 
+  List_ptr input = create_list();
+  List_ptr actual = filter(input,test_predicate);
+  int expected[] = {};
+  Status s = compare_list_values(actual,expected,0);
+  show_message("  should filter an empty list and return an empty list",s);
+}
+
+void test_filter(void)
+{
+  printf("\ntest filter\n");
+  test_filter_for_empty_list();
+}
+
 void test_array_methods(void)
 {
   test_map();
+  test_filter();
 }
