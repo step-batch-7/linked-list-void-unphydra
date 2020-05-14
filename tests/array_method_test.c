@@ -67,8 +67,43 @@ void test_filter(void)
   test_filter_for_even_filter();
 }
 
+Element test_reducer(Element a, Element b)
+{
+  int * r = malloc(sizeof(int));
+  *r = *(int*)a + *(int*)b;
+  return r;
+}
+
+void test_reduce_for_empty_list()
+{
+  List_ptr input = create_list();
+  int r = 0;
+  Element actual = reduce(input,&r,test_reducer);
+  Status s = *(int*)actual == 0;
+  show_message("  should reduce an empty list and return an initial value",s);
+}
+
+void  test_reduce_for_sum_of_numbers(void)
+{
+  List_ptr input = create_list();
+  int ar[] = {1,2,3,4,5};
+  Status s = add_to_list(input,&ar[0]) && add_to_list(input,&ar[1]) && add_to_list(input,&ar[2]) && add_to_list(input,&ar[3]) && add_to_list(input,&ar[4]);
+  int r = 0;
+  Element actual = reduce(input,&r,test_reducer);
+  s = s && *(int*)actual == 15;
+  show_message("  should reduce a number list and return total of the numbers",s);
+}
+
+void test_reduce(void)
+{
+  printf("\ntest reduce\n");
+  test_reduce_for_empty_list();
+  test_reduce_for_sum_of_numbers();
+}
+
 void test_array_methods(void)
 {
   test_map();
   test_filter();
+  test_reduce();
 }

@@ -33,6 +33,7 @@ Element reduce(List_ptr src, Element init, Reducer reducer)
   while (p_walk!=NULL)
   {
     result = (*reducer)(result,p_walk->element);
+    p_walk = p_walk->next;
   }
   return result;
 }
