@@ -1,6 +1,6 @@
 #include "linkedlist.h"
 
-List_ptr map_void(List_ptr src, Mapper mapper)
+List_ptr map(List_ptr src, Mapper mapper)
 {
   List_ptr result = create_list();
   Node_ptr p_walk = src->first;
@@ -12,7 +12,7 @@ List_ptr map_void(List_ptr src, Mapper mapper)
   return result;
 }
 
-List_ptr filter_void(List_ptr src, Predicate predicate)
+List_ptr filter(List_ptr src, Predicate predicate)
 {
   List_ptr result = create_list();
   Node_ptr p_walk = src->first;
@@ -26,7 +26,7 @@ List_ptr filter_void(List_ptr src, Predicate predicate)
   return result;
 }
 
-Element reduce_void(List_ptr src, Element init, Reducer reducer)
+Element reduce(List_ptr src, Element init, Reducer reducer)
 {
   Element result = init;
   Node_ptr p_walk = src->first;
